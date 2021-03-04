@@ -40,30 +40,35 @@ const App = () => {
   }
 
   return (
-    <div className="App">
+    <div className="App" onClick={() => setOptions([])}>
       <header className="App-header">
-        <p>Gene Suggest</p>
+        <p>Gene Suggest</p> 
         <div style={{ position: 'relative' }}>
           <div className="Aligner">
-            <input type="text" placeholder="Type something..." className="Autosuggest-text" 
-            value={query} 
-            onChange={updateSuggestions} 
-            onFocus={updateSuggestions}
+            <input type="text" placeholder="Type something..." className="Autosuggest-text"
+              value={query}
+              onChange={updateSuggestions}
+              onFocus={updateSuggestions}
             />
           </div>
           <ul className="Autocomplete-wrap" style={{ marginTop: '-20px', maxHeight: '450px' }}>
             {
-              loading ? <li className="List-item-2">Loading....</li> : 
-              options.map((item, index) => {
-                return <li className="List-item" onClick={() => {
-                  setQuery(item);
-                  setOptions([])
-                }} key={index}>{item}</li>
-              })
+              loading ? <li className="List-item-2">Loading....</li> :
+                options.map((item, index) => {
+                  return <li className="List-item" onClick={() => {
+                    setQuery(item);
+                    setOptions([])
+                  }} key={index}>{item}</li>
+                })
             }
           </ul>
         </div>
       </header>
+      <div className={"footer"}>
+            Name: Raja Polavarapu <br/>
+            Email: satyarajukits@gmail.com<br/>
+            Mobile: +919441841403<br/>
+      </div>
     </div>
   );
 }

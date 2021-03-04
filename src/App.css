@@ -65,3 +65,11 @@
   color: white;
 }
 
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: whitesmoke;
+  margin: 20px;
+  text-align: left;
+}
