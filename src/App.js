@@ -43,33 +43,64 @@ const App = () => {
 
   const [limit, setLimit] = React.useState(10)
   const [options, setOptions] = React.useState([]);
-  const [loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = React.useState({
+    speciesLoading: false,
+    dataLoading: false
+  });
 
   const updateSuggestions = (e) => {
     const { value } = e.target;
     setQuery(value);
-    setLoading(true);
+    setLoading({
+      ...loading,
+      dataLoading: true
+    });
     getData({ query: value, species, limit })
       .then(response => {
         setOptions(response)
-        setLoading(false);
+        setLoading({
+          ...loading,
+          dataLoading: false
+        });
       })
       .catch(() => {
         setOptions([])
-        setLoading(false);
+        setLoading({
+          ...loading,
+          dataLoading: false
+        });
       })
   }
 
   React.useEffect(() => {
+    setLoading({
+      ...loading,
+      speciesLoading: true
+    });
     getSpecies()
-      .then(result => { setUniqSpecies(result) })
-      .catch(err => setUniqSpecies(["homo_sapiens"]))
+      .then(result => { 
+        setUniqSpecies(result);
+        setLoading({
+          ...loading,
+          speciesLoading: false
+        })
+      })
+      .catch(err => {
+        setUniqSpecies(["homo_sapiens"]);
+        setLoading({
+          ...loading,
+          speciesLoading: false
+        })
+      })
   }, [])
+
 
   return (
     <div className="App" onClick={() => setOptions([])}>
       <header className="App-header">
-        <p>Gene Suggest</p>
+        {
+          loading.speciesLoading ? <p>Loading...</p> : <p>Gene Suggest</p>
+        }
         <div style={{ position: 'relative' }}>
           <div className={"selectElements"}>
             <select className={"Select Select1"} value={species} onChange={(e) => {
@@ -99,7 +130,7 @@ const App = () => {
           </div>
           <ul className="Autocomplete-wrap" style={{ marginTop: '-20px', maxHeight: '450px' }}>
             {
-              loading ? <li className="List-item-2">Loading....</li> :
+              loading.dataLoading ? <li className="List-item-2">Loading....</li> :
                 options.map((item, index) => {
                   return <li className="List-item" onClick={() => {
                     setQuery(item);
