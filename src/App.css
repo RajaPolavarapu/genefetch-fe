@@ -65,6 +65,31 @@
   color: white;
 }
 
+.selectElements {
+  width: 100%;
+  margin: 0;
+}
+
+.Select {
+    padding: .375rem 2.25rem .375rem .75rem;
+    font-size: 1.3rem;
+    font-weight: 400;
+    background-size: 16px 12px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    margin-bottom: 20px;
+}
+.Select1 {
+  width: 65%;
+  margin-right: 10px;
+  float: left
+}
+
+.Select2 {
+  width: 30%;
+  float: right;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
