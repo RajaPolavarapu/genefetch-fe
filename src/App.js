@@ -63,7 +63,7 @@ const App = () => {
   React.useEffect(() => {
     getSpecies()
       .then(result => { setUniqSpecies(result) })
-      .catch(err => setUniqSpecies([]))
+      .catch(err => setUniqSpecies(["homo_sapiens"]))
   }, [])
 
   return (
