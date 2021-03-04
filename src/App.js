@@ -75,7 +75,7 @@ const App = () => {
             <select className={"Select Select1"} value={species} onChange={(e) => {
               setQuery("");
               setSpecies(e.target.value);
-            }} defaultValue={"homo_sapiens"} placeholder="Select Species">
+            }} placeholder="Select Species">
               {
                 uniqspecies.map((item, index) => <option key={index} value={item}>{item}</option>)
               }
