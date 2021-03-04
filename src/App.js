@@ -4,7 +4,7 @@ import React from "react";
 
 const getSpecies = () => {
   return new Promise((resolve, reject) => {
-    fetch(`http://localhost:3001/unique_species`)
+    fetch(`https://genesuggest-emb.herokuapp.com/unique_species`)
       .then((response) => response.json())
       .then(result => {
         if (result && result.data) {
@@ -21,7 +21,7 @@ const getSpecies = () => {
 
 const getData = ({ query, species="homo_sapiens", limit=10 }) => {
   return new Promise((resolve, reject) => {
-    fetch(`http://localhost:3001/gene_suggest?limit=${limit}&species=${species}&query=${query}`)
+    fetch(`https://genesuggest-emb.herokuapp.com/gene_suggest?limit=${limit}&species=${species}&query=${query}`)
       .then((response) => response.json())
       .then(result => {
         if (result && result.data) {
