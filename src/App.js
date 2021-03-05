@@ -142,7 +142,7 @@ const App = () => {
         </div>
       </header>
       <div className={"footer"}>
-        Name: Raja Polavarapu <br />
+            Name: Raja Polavarapu <br />
             Email: satyarajukits@gmail.com<br />
             Mobile: +919441841403<br />
       </div>

@@ -13,8 +13,9 @@
     line-height: 1.42857143;
     border: 1px solid #ccc;
     border-radius: 4px;
-    
 }
+
+
 
 .Autocomplete-wrap {
   position: absolute;
@@ -97,4 +98,24 @@
   color: whitesmoke;
   margin: 20px;
   text-align: left;
+}
+
+@media only screen and (max-width: 600px) {
+  .Autosuggest-text {
+    text-align: center;
+    width: 350px;
+    margin: auto;
+}
+  .Select1 {
+    width: 65%;
+    margin-right: 10px;
+    margin-left: 10px;
+    float: left;
+  }
+
+  .Select2 {
+    width: 25%;
+    float: right;
+    margin-right: 10px;
+  }
 }
