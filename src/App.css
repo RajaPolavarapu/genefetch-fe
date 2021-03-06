@@ -106,16 +106,19 @@
     width: 350px;
     margin: auto;
 }
+.selectElements {
+  width: 380px;
+  margin: auto;
+}
+
   .Select1 {
     width: 65%;
     margin-right: 10px;
-    margin-left: 10px;
     float: left;
   }
 
   .Select2 {
-    width: 25%;
+    width: 30%;
     float: right;
-    margin-right: 10px;
   }
 }
